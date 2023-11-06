@@ -2,13 +2,17 @@
   "env": {
     "browser": true,
     "es2021": true,
-    "node": true
+    "node": true,
+    "es6": true,
+    "jest": true
   },
-  "extends": "eslint:recommended",
+  "extends": ["eslint:recommended", "plugin:jest/recommended"],
   "overrides": [
     {
       "files": ["**/*.cy.js"],
-      "env": { "cypress/globals": true },
+      "env": {
+        "cypress/globals": true
+      },
       "plugins": ["cypress"],
       "extends": ["plugin:cypress/recommended"],
       "rules": {
@@ -23,6 +27,7 @@
       }
     }
   ],
+  "plugins": ["jest"],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
