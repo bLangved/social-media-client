@@ -1,5 +1,3 @@
-// TODO: Implement setupNodeEvents and remove eslint-disable below
-/* eslint-disable no-unused-vars */
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({

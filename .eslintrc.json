@@ -9,28 +9,25 @@
   "overrides": [
     {
       "files": ["**/*.cy.js"],
-      "env": {
-        "cypress/globals": true
-      },
+      "env": { "cypress/globals": true },
       "plugins": ["cypress"],
       "extends": ["plugin:cypress/recommended"],
       "rules": {
         "cypress/no-unnecessary-waiting": "off",
-        "no-unused-vars": "off",
-        "cypress/unsafe-to-chain-command": "off"
+        "no-unused-vars": "off"
       }
     },
     {
-      "files": ["**/*.test.js", "**/*.spec.js"], // adjust the pattern to match your Jest test files
-      "env": {
-        "jest/globals": true
-      },
+      "files": ["**/*.test.js"],
+      "env": { "jest": true },
+      "plugins": ["jest"],
       "extends": ["plugin:jest/recommended"],
-      "plugins": ["jest"]
+      "rules": { "jest/prefer-expect-assertions": "off" }
     }
   ],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
-  }
+  },
+  "rules": {}
 }
