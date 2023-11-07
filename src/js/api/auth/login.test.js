@@ -10,7 +10,9 @@ jest.mock("../constants.js", () => ({
 }));
 
 jest.mock("../headers.js", () => ({
-  headers: () => ({ "Content-Type": "application/json" }),
+  headers: () => ({
+    "Content-Type": "application/json",
+  }),
 }));
 
 global.fetch = jest.fn(() =>
@@ -19,7 +21,7 @@ global.fetch = jest.fn(() =>
     json: () =>
       Promise.resolve({
         accessToken: "fake_access_token",
-        user: { id: 1, name: "John Doe" },
+        user: { id: 1, name: "User Name" },
       }),
     statusText: "OK",
   }),
@@ -31,9 +33,9 @@ describe("login", () => {
     save.mockClear();
   });
 
-  it("should save the profile and token when the login is successful", async () => {
+  it("Saves the profile and token when the login is successful", async () => {
     const email = "test@example.com";
-    const password = "password123";
+    const password = "correctPassword";
 
     const profile = await login(email, password);
 
@@ -49,15 +51,15 @@ describe("login", () => {
     expect(save).toHaveBeenCalledWith("token", "fake_access_token");
 
     expect(save).toHaveBeenCalledWith("profile", {
-      user: { id: 1, name: "John Doe" },
+      user: { id: 1, name: "User Name" },
     });
 
     expect(profile.accessToken).toBeUndefined();
 
-    expect(profile).toEqual({ user: { id: 1, name: "John Doe" } });
+    expect(profile).toEqual({ user: { id: 1, name: "User Name" } });
   });
 
-  it("should throw an error when the login is unsuccessful", async () => {
+  it("Throws an error when the login is unsuccessful", async () => {
     fetch.mockImplementationOnce(() =>
       Promise.resolve({
         ok: false,
@@ -66,7 +68,7 @@ describe("login", () => {
     );
 
     const email = "test@example.com";
-    const password = "wrongpassword";
+    const password = "wrongPassword";
 
     await expect(login(email, password)).rejects.toThrow("Unauthorized");
 

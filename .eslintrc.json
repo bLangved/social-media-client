@@ -3,10 +3,9 @@
     "browser": true,
     "es2021": true,
     "node": true,
-    "es6": true,
-    "jest": true
+    "es6": true
   },
-  "extends": ["eslint:recommended", "plugin:jest/recommended"],
+  "extends": ["eslint:recommended"],
   "overrides": [
     {
       "files": ["**/*.cy.js"],
@@ -18,16 +17,18 @@
       "rules": {
         "cypress/no-unnecessary-waiting": "off",
         "no-unused-vars": "off",
-        // Might want to remove rule under later on, but cypress default example files are being reported by eslint:
-        /* 
-        It is unsafe to chain further commands that rely on the subject after this command. 
-        It is best to split the chain, chaining again from `cy.` in a next command line  cypress/unsafe-to-chain-command 
-        */
         "cypress/unsafe-to-chain-command": "off"
       }
+    },
+    {
+      "files": ["**/*.test.js", "**/*.spec.js"], // adjust the pattern to match your Jest test files
+      "env": {
+        "jest/globals": true
+      },
+      "extends": ["plugin:jest/recommended"],
+      "plugins": ["jest"]
     }
   ],
-  "plugins": ["jest"],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"

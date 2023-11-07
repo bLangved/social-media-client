@@ -1,5 +1,6 @@
 describe("User Login and Profile Access", () => {
   beforeEach(() => {
+    cy.intercept("POST", "**/social/auth/login").as("loginRequest");
     cy.visit("/");
     cy.wait(1000);
     cy.get("#registerModal").should("be.visible");
@@ -7,23 +8,27 @@ describe("User Login and Profile Access", () => {
     cy.wait(500);
   });
 
-  it("rejects a user with invalid login credentials", () => {
-    // Fill in invalid data in input fields
+  // When trying this in a regular browser, I get thrown an error (response.statusText). I don't get it here.
+  it("rejects a user. Either username was not found or password is incorrect. StatusCode 401", () => {
     cy.get("#loginEmail").type(Cypress.env("notValidUSERNAME"), { delay: 50 });
-    cy.wait(100);
     cy.get("#loginPassword").type(Cypress.env("notValidPASSWORD"), {
       delay: 50,
     });
-    cy.wait(500);
     cy.contains('button[type="submit"]', "Login").click();
-    cy.wait(2000);
+    cy.wait("@loginRequest").then((interception) => {
+      expect(interception.response.statusCode).to.eq(401);
+    });
   });
 
-  it("allows a user with valid login credentials to access their profile", () => {
-    // Fill in valid data in input-fields
+  it("accepts user login with valid login credentials. StatusCode 200", () => {
     cy.get("#loginEmail").type(Cypress.env("validUSERNAME"), { delay: 50 });
     cy.get("#loginPassword").type(Cypress.env("validPASSWORD"), { delay: 50 });
     cy.wait(500);
     cy.contains('button[type="submit"]', "Login").click();
+    cy.wait(500);
+    cy.url().should("include", "?view=profile&name=");
+    cy.wait("@loginRequest").then((interception) => {
+      expect(interception.response.statusCode).to.eq(200);
+    });
   });
 });

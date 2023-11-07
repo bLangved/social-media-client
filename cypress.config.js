@@ -4,8 +4,11 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: "http://127.0.0.1:5500", // Set your local development URL
-    setupNodeEvents(on, config) {},
+    setupNodeEvents(on, config) {
+      // BASE_URL is defined in cypress.env.json, use it. Otherwise, use the default.
+      config.baseUrl = config.env.BASE_URL || "http://localhost:5500/";
+      return config;
+    },
     defaultCommandTimeout: 10000,
   },
 });
