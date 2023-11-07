@@ -1,5 +1,4 @@
 describe("User Login and Logout Flow", () => {
-  const baseUrl = Cypress.config("baseUrl");
   before(() => {
     cy.intercept("POST", "**/social/auth/login").as("loginRequest");
     cy.visit("/");
@@ -22,6 +21,6 @@ describe("User Login and Logout Flow", () => {
     cy.wait(2000);
     cy.get('button[data-auth="logout"]').should("be.visible").click();
     cy.wait(1000);
-    cy.url().should("equal", `${baseUrl}`);
+    cy.location("pathname").should("eq", "/");
   });
 });

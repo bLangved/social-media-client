@@ -8,7 +8,6 @@ cypress.env.json
   "validPASSWORD": a valid password,
   "notValidUSERNAME": "invalid@example.com",
   "notValidPASSWORD": "wrongpassword"
-  "BASE_URL": Put in your local IP address and port number (f.ex "http://127.0.0.1:5500/")
   }
 
 2.  See .vscode folder in root directory for my recommended settings working on this project.
