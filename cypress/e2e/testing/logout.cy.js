@@ -6,8 +6,8 @@ describe("User Login and Logout Flow", () => {
     cy.get("#registerModal").should("be.visible");
     cy.get("#registerModal .btn-outline-success").click();
     cy.wait(500);
-    cy.get("#loginEmail").type(Cypress.env("validUSERNAME"), { delay: 50 });
-    cy.get("#loginPassword").type(Cypress.env("validPASSWORD"), { delay: 50 });
+    cy.get("#loginEmail").type(Cypress.env("VALID_USERNAME"), { delay: 50 });
+    cy.get("#loginPassword").type(Cypress.env("VALID_PASSWORD"), { delay: 50 });
     cy.wait(500);
     cy.contains('button[type="submit"]', "Login").click();
     cy.wait(500);

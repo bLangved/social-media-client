@@ -10,8 +10,8 @@ describe("User Login and Profile Access", () => {
 
   // When trying this in a regular browser, I get thrown an error (response.statusText). I don't get it here.
   it("rejects a user. Either username was not found or password is incorrect. StatusCode 401", () => {
-    cy.get("#loginEmail").type(Cypress.env("notValidUSERNAME"), { delay: 50 });
-    cy.get("#loginPassword").type(Cypress.env("notValidPASSWORD"), {
+    cy.get("#loginEmail").type("invalid@noroff.no", { delay: 50 });
+    cy.get("#loginPassword").type("wrongpassword123", {
       delay: 50,
     });
     cy.contains('button[type="submit"]', "Login").click();
@@ -21,8 +21,8 @@ describe("User Login and Profile Access", () => {
   });
 
   it("accepts user login with valid login credentials. StatusCode 200", () => {
-    cy.get("#loginEmail").type(Cypress.env("validUSERNAME"), { delay: 50 });
-    cy.get("#loginPassword").type(Cypress.env("validPASSWORD"), { delay: 50 });
+    cy.get("#loginEmail").type(Cypress.env("VALID_USERNAME"), { delay: 50 });
+    cy.get("#loginPassword").type(Cypress.env("VALID_PASSWORD"), { delay: 50 });
     cy.wait(500);
     cy.contains('button[type="submit"]', "Login").click();
     cy.wait(500);

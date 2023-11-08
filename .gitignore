@@ -1,6 +1,7 @@
 # General
 /node_modules
 /dist
+.env
 
 # ESLint specific
 /.eslintcache
