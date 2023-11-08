@@ -1,3 +1,7 @@
+[![Automated Unit Testing](https://github.com/bLangved/social-media-client/actions/workflows/unit-test.yml/badge.svg)](https://github.com/bLangved/social-media-client/actions/workflows/unit-test.yml)
+
+[![Automated E2E Testing](https://github.com/bLangved/social-media-client/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/bLangved/social-media-client/actions/workflows/e2e-test.yml)
+
 ## Usage instructions for project
 
 ## For cypress E2E testing
