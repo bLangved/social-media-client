@@ -1,0 +1,22 @@
+name: Automated E2E Testing
+
+on: 
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  run-e2e-tests:
+    name: Run E2E Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout under $GITHUB_WORKSPACE
+        uses: actions/checkout@v4 
+
+      - name: run cypress tests with electron
+        uses: cypress-io/github-action@v4
+        with:
+          browser: electron
+        env: 
+          CYPRESS_VALID_USERNAME: ${{ secrets.VALID_USERNAME }}
+          CYPRESS_VALID_PASSWORD: ${{ secrets.VALID_PASSWORD }}
