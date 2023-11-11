@@ -10,6 +10,7 @@ Using the skills and knowledge from this course, improve the quality of a packag
 
 [![Code Review](https://github.com/bLangved/social-media-client/actions/workflows/gpt.yml/badge.svg)](https://github.com/bLangved/social-media-client/actions/workflows/gpt.yml)
 
+[![Deploy static content to Pages](https://github.com/bLangved/social-media-client/actions/workflows/static.yml/badge.svg)](https://github.com/bLangved/social-media-client/actions/workflows/static.yml)
 
 ## Description
 Throughout the course, I've learned how to setup workflows both locally, and autonomus workflows with github actions, to have quality testing in my projects. The project is forked from a Noroff repo, so HTML, bootstrap, SASS and JS (except tests) were provided by Noroff. Jest and cypress tests has been made by me. 
