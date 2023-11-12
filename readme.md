@@ -53,6 +53,7 @@ To E2E-tests with Cypress, use the following terminal command:
 
 - npm run test-e2e
 
+For E2E-testing, you also need to create a *cypress.env.json* with valid login credentials. See the cypress.example.env.json file in root folder for template.
 
 ### Contributing
 As this project was a school assigment, and forked from a Noroff repo, it is not open for contributions, but feedback is allways appreciated! 
