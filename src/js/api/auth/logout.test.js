@@ -26,7 +26,7 @@ describe("logout functionality", () => {
     global.localStorage = mockLocalStorage;
   });
 
-  test("Removes token and profile from storage when logout is called, and values are present", () => {
+  test("If values are present in storage: Removes token and profile from storage on logout", () => {
     // Pretend that localStorage already has the token and profile
     localStorage.setItem("token", "test-token");
     localStorage.setItem("profile", "test-profile");
@@ -35,8 +35,7 @@ describe("logout functionality", () => {
     expect(localStorage.getItem("profile")).toBeUndefined();
   });
 
-  test("Calling logout with an empty localStorage does not throw", () => {
-    // This will test that the browser will not throw an error if localStorage should by some means be empty on logout.
+  test("If values are NOT present in storage: browser will not throw an error on logout", () => {
     expect(localStorage.getItem("token")).toBeUndefined();
     expect(localStorage.getItem("profile")).toBeUndefined();
     const runLogout = () => logout();
