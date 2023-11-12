@@ -41,14 +41,14 @@ To get project up and running, use the following terminal command that installs 
 Tests are run automatically on Pull Requests. This ensures only quality code gets submitted to project, and are required to pass. 
 
 ### Unit-testing
-Jest-tests are found inside cypress/e2e/testing
-To run unit tests with jest, use the following terminal command:
+Jest-tests are found inside src/js/api/auth
+To run unit-tests with jest, use the following terminal command:
 
 - npm run test
 
 
 ### E2E-testing
-Cypress-tests are found inside src/js/auth
+Cypress-tests are found inside cypress/e2e/testing
 To E2E-tests with Cypress, use the following terminal command:
 
 - npm run test-e2e
