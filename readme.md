@@ -1,72 +1,64 @@
 # Workflow CA
 
-## Description
 This project is a school assigment in the subject "Workflow". The goal for the assigment was as follows: 
 Using the skills and knowledge from this course, improve the quality of a package by establishing helpful workflows that make the development process more efficient.
 
-## Status bagdes
+## Status
 [![Automated Unit Testing](https://github.com/bLangved/social-media-client/actions/workflows/unit-test.yml/badge.svg)](https://github.com/bLangved/social-media-client/actions/workflows/unit-test.yml)
 
 [![Automated E2E Testing](https://github.com/bLangved/social-media-client/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/bLangved/social-media-client/actions/workflows/e2e-test.yml)
 
-## Usage instructions for project
+[![Code Review](https://github.com/bLangved/social-media-client/actions/workflows/gpt.yml/badge.svg)](https://github.com/bLangved/social-media-client/actions/workflows/gpt.yml)
 
-See .vscode folder in root directory for my recommended settings working on this project.
-If you install newer/older versions of some dependencies, I can't guarante that it won't break functionality in the project. 
+[![Deploy static content to Pages](https://github.com/bLangved/social-media-client/actions/workflows/static.yml/badge.svg)](https://github.com/bLangved/social-media-client/actions/workflows/static.yml)
 
-These are dependencies I have used within this project (and commands to install them): 
+## Description
+Throughout the course, I've learned how to setup workflows both locally, and autonomus workflows with github actions, to have quality testing in my projects. The project is forked from a Noroff repo, so HTML, bootstrap, SASS and JS (except tests) were provided by Noroff. Jest and cypress tests has been made by me. 
 
-**Eslint:**
-How to install: npm install eslint --save-dev
-How to initialise: npx eslint --init (follow instructions)
+## Technologies Used
 
-**Prettier:**
-How to install: npm install --save-dev prettier
-
-**Mrm:**
-How to install: npx mrm@2 lint-staged
-
-### For unit-testing with Jest:
-- Versions listed are current versions used
-1. Install Jest - npm i -D jest@29.7.0
-2. Install Babel for Jest: npm -D install @babel/core@7.19.3 @babel/preset-env@7.19.4
-
-### For E2E testing with Cypress:
-
-1. Install Cypress: npm i -D cypress eslint-plugin-cypress
-2. If you do not have a Noroff API user, check out the API documentation at https://docs.noroff.dev/
-3. Create a cypress.env.json file in the root directory.
-4. Enter both valid login-credentials inside cypress.env.json.
-5. Both variables are strings, and needs to be inside quotation marks
-
-// Inside cypress.env.json
-{
-"VALID_USERNAME": "test.test@mail.com",
-"VALID_PASSWORD": "validPassword"
-}
-
-5. (optional) Both variables needs to be added as secret variables on github if you want to run tests remotely
-
+- HTML
+- Bootstrap
+- SASS
+- JavaScript
+- Prettier
+- EsLint
+- Husky
+- Jest
+- Babel
+- Cypress
 
 ## Getting started
 
-### Installing
-Clone this repo:
+### Installations
 
-```bash
-git clone https://github.com/bLangved/social-media-client.git
-```
+To get project up and running, use the following terminal command that installs all necessary dependencies.
 
-### Running
+- npm install
 
-You might need to install a package manager before working on the project. Run "npm install" for this. 
+
+## Testing
+Tests are run automatically on Pull Requests. This ensures only quality code gets submitted to project, and are required to pass. 
+
+### Unit-testing
+Jest-tests are found inside src/js/api/auth
+To run unit-tests with jest, use the following terminal command:
+
+- npm run test
+
+
+### E2E-testing
+Cypress-tests are found inside cypress/e2e/testing
+To E2E-tests with Cypress, use the following terminal command:
+
+- npm run test-e2e
+
+For E2E-testing, you also need to create a *cypress.env.json* with valid login credentials. See the cypress.example.env.json file in root folder for template.
 
 ### Contributing
-
-As this project was a school assigment, and forked from a Noroff repo, it is not open for contributions.
+As this project was a school assigment, and forked from a Noroff repo, it is not open for contributions, but feedback is allways appreciated! 
 
 ### Contact
-
 To get in contact with me regarding this project, please use one of the below options:
 
 [My LinkedIn page](https://www.linkedin.com/in/bj%C3%B8rnar-heian-langved-23157b246/)
